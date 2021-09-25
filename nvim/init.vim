@@ -1,20 +1,31 @@
+<<<<<<< HEAD
 set rnu
 set nu
 colorscheme industry
 filetype plugin on
 filetype plugin indent on
 
+=======
+""" NEOVIM  CONFIG """
+
+set rnu
+>>>>>>> f8f08369b51b987cf54622b97c8ddb9dd962d2b9
 
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+<<<<<<< HEAD
 Plug 'zchee/deoplete-jedi', {'for': 'python' }
+=======
+Plug 'zchee/deoplete-jedi'
+>>>>>>> f8f08369b51b987cf54622b97c8ddb9dd962d2b9
 Plug 'davidhalter/jedi-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdcommenter'
 Plug 'sbdchd/neoformat'
 Plug 'scrooloose/nerdtree'
+<<<<<<< HEAD
 Plug 'tpope/vim-fugitive' "Git stuff
 Plug 'airblade/vim-gitgutter'
 Plug 'easymotion/vim-easymotion' "Goto word
@@ -42,17 +53,35 @@ Plug 'jalvesaq/zotcite'
 call plug#end()
 
 """Settings"""
+=======
+Plug 'neomake/neomake'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'machakann/vim-highlightedyank'
+call plug#end()
+
+"""Settings"""
+
+hi! Normal ctermbg=NONE guibg=NONE
+
+>>>>>>> f8f08369b51b987cf54622b97c8ddb9dd962d2b9
 let g:deoplete#enable_at_startup = 1
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 let g:neoformat_basic_format_align = 1
+<<<<<<< HEAD
 let g:neoformat_basic_format_retab = 1
+=======
+
+let g:neoformat_basic_format_retab = 1
+
+>>>>>>> f8f08369b51b987cf54622b97c8ddb9dd962d2b9
 let g:neoformat_basic_format_trim = 1
 
 let g:jedi#completions_enabled = 0
 let g:jedi#use_splits_not_buffers = "right"
 
+<<<<<<< HEAD
 let g:neomake_python_enabled_makers = ['pylint', 'pylint_flask']
 call neomake#configure#automake('nrwi', 500)
 
@@ -142,3 +171,8 @@ nnoremap <Leader>/ :IPythonCellNextCell<CR>
 nnoremap <Leader>x :IPythonCellClose<CR>
 
 
+=======
+let g:neomake_python_enabled_makers = ['pylint']
+call neomake#configure#automake('nrwi', 500)
+nmap <buffer> <F9> <Esc>:w<CR>:!clear;python %<CR>
+>>>>>>> f8f08369b51b987cf54622b97c8ddb9dd962d2b9

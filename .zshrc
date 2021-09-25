@@ -3,7 +3,10 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/alekhine/.oh-my-zsh"
+<<<<<<< HEAD
 # Aliases
+=======
+>>>>>>> f8f08369b51b987cf54622b97c8ddb9dd962d2b9
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -101,6 +104,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+<<<<<<< HEAD
 # For now pyenv, not in use
 #if command -v pyenv 1>/dev/null 2>&1; then
   #eval "$(pyenv init -)"
@@ -154,3 +158,15 @@ export PATH="/opt/homebrew/opt/icu4c/bin:$PATH"
 export PATH="/opt/homebrew/opt/icu4c/sbin:$PATH"
 export PATH="/opt/homebrew/opt/pyside@2/bin:$PATH"
 export PATH="/opt/homebrew/opt/qt@5/bin:$PATH"
+=======
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+export WORKON_HOME=~/.virtualenvs
+mkdir -p $WORKON_HOME
+. ~/.pyenv/versions/3.9.4/bin/virtualenvwrapper.sh
+
+export TERM=xterm-256color
+[ -n "$TMUX" ] && export TERM=screen-256color
+>>>>>>> f8f08369b51b987cf54622b97c8ddb9dd962d2b9
