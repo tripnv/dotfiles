@@ -139,8 +139,9 @@ alias nnote='new-note'
 
 # Create new note 
 new-note(){
+	now="$(date '+%Y-%m-%d %H:%M:%S')" 
 	cd ~/Desktop/zk/Zettelkasten/Fleeting_notes/
-	nvim "$1".md
+	nvim "$now".md
 
 }
 
