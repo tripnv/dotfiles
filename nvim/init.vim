@@ -57,7 +57,7 @@ call neomake#configure#automake('nrwi', 500)
 
 hi HighlightedyankRegion cterm=reverse gui=reverse
 "Trailing whitespaces
-nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+"nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 nmap <buffer> <F9> <Esc>:w<CR>:!clear;python %<CR>
 
@@ -140,4 +140,5 @@ nnoremap <Leader>/ :IPythonCellNextCell<CR>
 "_close plots
 nnoremap <Leader>x :IPythonCellClose<CR>
 
-
+"Zotcite
+let $ZCitationTemplate = '({Authors}, {Year})'

@@ -155,3 +155,6 @@ export PATH="/opt/homebrew/opt/icu4c/bin:$PATH"
 export PATH="/opt/homebrew/opt/icu4c/sbin:$PATH"
 export PATH="/opt/homebrew/opt/pyside@2/bin:$PATH"
 export PATH="/opt/homebrew/opt/qt@5/bin:$PATH"
+
+eval $(thefuck --alias wtf)
+
