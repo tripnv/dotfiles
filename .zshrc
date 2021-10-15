@@ -136,7 +136,6 @@ conda config --set auto_activate_base false
 alias vi="nvim"
 alias oldvim="vim"
 alias nnote='new-note'
-
 # Create new note 
 new-note(){
 	now="$(date '+%Y-%m-%d %H:%M:%S')" 
@@ -148,6 +147,10 @@ new-note(){
 # Edit vim 
 edit-vim(){
 	vi ~/.config/nvim/init.vim
+}
+
+goto-uni(){
+	cd ~/Desktop/hnnaharendt/fmi/
 }
 
 

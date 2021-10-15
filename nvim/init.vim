@@ -61,6 +61,12 @@ hi HighlightedyankRegion cterm=reverse gui=reverse
 
 nmap <buffer> <F9> <Esc>:w<CR>:!clear;python %<CR>
 
+"NERDTree
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+
+
 
 "IndentLine 
 let g:indentLine_char = '▏' 
