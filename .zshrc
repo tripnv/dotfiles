@@ -149,7 +149,7 @@ edit-vim(){
 	vi ~/.config/nvim/init.vim
 }
 
-goto-uni(){
+fmi(){
 	cd ~/Desktop/hnnaharendt/fmi/
 }
 
