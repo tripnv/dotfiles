@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/alekhine/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 # Aliases
 
 # Set name of the theme to load --- if set to "random", it will
@@ -101,35 +101,27 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# For now pyenv, not in use
-#if command -v pyenv 1>/dev/null 2>&1; then
-  #eval "$(pyenv init -)"
-#fi
-
-#export WORKON_HOME=~/.virtualenvs
-#mkdir -p $WORKON_HOME
-#. ~/.pyenv/versions/3.9.4/bin/virtualenvwrapper.sh
 
 export TERM=xterm-256color
 [ -n "$TMUX" ] && export TERM=screen-256color
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-# >>> conda initialize >>>
+
+## >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/opt/homebrew/Caskroom/miniforge/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/hdd_n/mambaforge/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/opt/homebrew/Caskroom/miniforge/base/etc/profile.d/conda.sh" ]; then
-        . "/opt/homebrew/Caskroom/miniforge/base/etc/profile.d/conda.sh"
+    if [ -f "/home/hdd_n/mambaforge/etc/profile.d/conda.sh" ]; then
+        . "/home/hdd_n/mambaforge/etc/profile.d/conda.sh"
     else
-        export PATH="/opt/homebrew/Caskroom/miniforge/base/bin:$PATH"
+        export PATH="/home/hdd_n/mambaforge/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+
 conda config --set auto_activate_base false
 
 # Aliases
@@ -139,7 +131,7 @@ alias nnote='new-note'
 # Create new note 
 new-note(){
 	now="$(date '+%Y-%m-%d %H:%M:%S')" 
-	cd ~/Desktop/zk/Zettelkasten/Fleeting_notes/
+	cd ~/.zettelkasten/Fleeting_notes/
 	nvim "$now".md
 
 }
@@ -153,11 +145,34 @@ fmi(){
 	cd ~/Desktop/hnnaharendt/fmi/
 }
 
-
-export PATH="/opt/homebrew/opt/icu4c/bin:$PATH"
-export PATH="/opt/homebrew/opt/icu4c/sbin:$PATH"
-export PATH="/opt/homebrew/opt/pyside@2/bin:$PATH"
-export PATH="/opt/homebrew/opt/qt@5/bin:$PATH"
-
 eval $(thefuck --alias wtf)
 
+# Conda shortcut
+ccc(){
+	condaoutput=$(conda info --envs | sed '1,2d' | cut -d " " -f 1 )
+	envs=()
+	while IFS= read -r line
+	do
+		envs+=( "$line" )	
+	
+	done < <(printf '%s\n' "$condaoutput")
+
+
+	printf "The following conda environments can be activated: \n"
+
+	i=1
+	for ENVIRONMENT in "${envs[@]}"
+	do
+		printf '\t[%s] %s\n' "$i" "$ENVIRONMENT"
+		let i="${i}"+1
+	done
+
+	printf 'Choose the corresponding number and the rest will be taken care of.\n'
+	read -k 1 -r USERCHOICE
+
+	if (( USERCHOICE <= i && USERCHOICE != 0 ))
+	then
+		conda activate "${envs[$USERCHOICE]}"
+		clear
+	fi
+}
